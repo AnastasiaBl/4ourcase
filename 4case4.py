@@ -3,7 +3,9 @@ Developers:
 Bliznyak Anastasia, Vdovidskaya Valeria,Manko Andrei.
 
 """
-text = input("Введите текст:")
+from ru_local import *
+
+text = input(INPUTTEXT)
 count_sentences = 0
 count_words = 1 + text.count(' ')
 for i in range(len(text)):
@@ -24,19 +26,19 @@ ASL = count_words / count_sentences
 ASW = count_syllables / count_words
 FRE = 206.835 - (1.3 * ASL) - (60.1 * ASW)
 
-print('Предложений:', count_sentences)
-print('Слов:', count_words)
-print('Слогов:', count_syllables)
-print('Средняя длина предложения в словах:', ASL)
-print('Средняя длина слова в слогах:', ASW)
-print('Индекс удобочитаемости Флеша:', FRE)
+print(SENTENCES, count_sentences)
+print(WORDS, count_words)
+print(SYLLABLE, count_syllables)
+print(AVERAGEWORDS, ASL)
+print(AVERAGESYLLABLE, ASW)
+print(INDEX, FRE)
 if FRE <= 25:
-    print('Текст трудно читается (для выпускников ВУЗов).')
+    print(HARD)
 elif 25 <= FRE <= 50:
-    print('Текст немного трудно читать (для студентов).')
+    print(DIFFICULT)
 elif 50 <= FRE <= 80:
-    print('Простой текст (для школьников).')
+    print(EAZY)
 elif FRE >= 80:
-    print('Текст очень легко читается (для младших школьников).')
+    print(VERYEAZY)
 
 
